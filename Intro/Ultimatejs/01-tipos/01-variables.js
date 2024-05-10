@@ -1,3 +1,11 @@
-let nombre = "Hola Mundo";
+//UpperCamelCase, camelCase, snake_case
 
-console.long(nombre);
+let nombre = 'Hola Mundo';
+let NombreCompleto;
+let nombreCompleto;
+let nombre_completo;
+console.log(NombreCompleto);
+
+let apellido;
+let animal;
+apellido = 'Schurmann';
