@@ -120,11 +120,53 @@ console.log([...nombres,...edades])
 
 // ********** MODULOS: IMPORT & EXPORT *********** 
 
-import { suma,resta} from "./calculadora.js"
+/* import { suma,resta} from "./calculadora.js"
 
 console.log(suma(4,3))
 console.log(resta(10,3))
+*/
 
+// ******EJEMPLO DE PROMESA **********
+/*
+const ul= document.createElement('ul')
 
+let datos= fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(function (response){
+                console.log("cargar de datos completada")
+                return response.json()      //regresar una respuesta con formato json
+            }).then(function (data){ //regresa cuando se cumpla la siguiente promesa. Declaramos otra funcion llamaa data
+                console.log(data)
+                data.forEach( function (post){  //Declaramos un forEach
+                    const li = document.createElement('li') //Agregamos una constante llamada li
+                    li.innerHTML= post.title //crea un texto HTML con su elemento 
+                    ul.append(li)
+                })
+                document.body.append(ul) //mandamos toda la lista completa en el body
+            })   
 
+console.log('cargando HTML')
+console.log('cargando css')
+console.log('cargando Imagenes')
+*/
+
+//***********  EJEMPLO CON Async Await  ****************
+
+const ul= document.createElement('ul')
+
+ async function cargarDatos(){ //declaramos una funcion asincrona
+    const response= await fetch('https://jsonplaceholder.typicode.com/posts') //tiene una contantes llamada respuesta, y va a tener una promesa con await.dentro de fetch usamos la dirección de la API
+    const datos= await response.json() //declaramos otra constante llamada datos que va a tener una promeda await, y va a trabajar sore la repsuesta de la promesa que esta guardada en response en formato json
+    console.log(datos) // imprimimos los datos
+    datos.forEach( function (post){  //Declaramos un forEach
+        const li = document.createElement('li') //Agregamos una constante llamada li
+        li.innerHTML= post.title //crea un texto HTML con su elemento 
+        ul.append(li)
+    })
+    document.body.append(ul) //mandamos toda la lista completa en el body
+ }
+
+cargarDatos() //llamamos la función carcar datos
+console.log('cargando HTML')
+console.log('cargando css')
+console.log('cargando Imagenes')
 
