@@ -1,23 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import React,{useState} from 'react';
 
 
-const Texto=({estilo})=>{ /* Creamos la varible en nuetro componente. Propiedad estilo */
-  /* Declarmos una variabe de contenido para el componente */
-  const [contenido,setContenido]= useState('Hola Mundo')
-  const actualizarContenido=()=>{setContenido('State actualizado este texto')} /* Creamos otra constante, cuando sea presionoado el texto Mundo y cuando le de click lo va a cambiar por State Actualizado*/
-  return (<Text style={[styles.text,estilo]} onPress={actualizarContenido} > {contenido} </Text>) /* Dentro de texto queremos que aparezca el contenido. Agregamos en la prpiedad style */
-}
+
 
 export default function App() {
+
+  const [text,setText]=useState('')
+  const [submit,setSubmit]=useState('')
+
   return (
 
     <View style={styles.container}>
 
-      <Texto estilo={styles.red}/> {/* Agregamos el estilo y color en el Texto Hola Mundo */}
-      <Texto estilo={styles.green}/> 
-      <Texto estilo={styles.blue}/> 
+  
+
+    <Text>Componente TextInput: {submit} </Text>
+
+    <TextInput style={styles.input} placeholder="Escribe un texto" onChangeText={t=>setText(t)} defaultValue={text} /> {/* onchangeText  mandar llamar el setText, defaultValue mandar llamar el text de arriba*/}
+
+    <Button title='Presioname...' onPress={ ()=>{ setSubmit(Text); alert('Texto enviado')} } />
 
 
       <StatusBar style="auto" />
@@ -33,23 +36,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column', /* se usa para dar orientación al texto, ya se a que es row o colum */
     backgroundColor: '#fff',
     alignItems: 'center', /* felx-start posición al inicio/ flex-end posición al final/strech toma todo el espacio */
-    justifyContent: 'flex-end',
+    justifyContent: 'center', /* Alinea de arriba hacia bajo, flex-end alinea hacia bajo, space-around alinea en una posición equitativa, en el space-evvenly alinia los espacios */
   },
-  text:{
-    color:'yellow',
-    fontSize: 25,
-  },
-  red:{
-    /*flex:1,*/
-
-    backgroundColor:'red',
-  },
-  green:{
-  /*flex:2,*/
-    backgroundColor:'green',
-  },
-  blue:{
-  /*flex:3,*/
-    backgroundColor:'blue',
+  input:{
+    backgroundColor: '276B92',
+    width: '50%' ,
+    height: 40,
+    borderBottomColor: '#000000',
+    borderBottomWidth: 1,
   }
+
 });
