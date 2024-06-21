@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
+import { ImageBackground } from 'react-native';
+import fondoImagen from './assets/imagen_fondo/imagen.jpg'; 
 
 export default function App() {
   const [text, setText] = useState('');
