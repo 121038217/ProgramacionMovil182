@@ -1,8 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import React, { useState } from 'react';
-import { ImageBackground } from 'react-native';
-import fondoImagen from './assets/imagen_fondo/imagen.jpg'; 
 
 export default function App() {
   const [text, setText] = useState('');
@@ -10,16 +8,24 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+
+      <ScrollView style={styles.scrollView}>
       
-      <Text>Componente TextInput: {submit}</Text>
+      <Text> Componente TextInput: {submit}</Text>  
+      <Text> Componente TextInput: {submit}</Text>  
+      <Text> Componente TextInput: {submit}</Text>  
+      <Text> Componente TextInput: {submit}</Text>  
+      <Text> Componente TextInput: {submit}</Text>  
       
       <TextInput  style={styles.input}  placeholder="Escribe un texto" onChangeText={t => setText(t)} defaultValue={text}/> {/* onchangeText  mandar llamar el setText, defaultValue mandar llamar el text de arriba*/}
       
-      <TouchableOpacity style={styles.boton} onPress={() => { setSubmit(text); alert('Texto enviado'); }}>
+      <TouchableOpacity style={styles.button} onPress={() => { setSubmit(text); alert('Texto enviado'); }}>
         
-      <Text style={styles.botonText}>Presioname...</Text>
+      <Text style={styles.buttonText}>Presioname...</Text>
       
       </TouchableOpacity>
+
+      </ScrollView>
 
       <StatusBar style="auto" />
     </View>
@@ -41,7 +47,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#000000',
     borderBottomWidth: 1,
   },
-  boton: {
+  button: {
     backgroundColor: "#FF69B4",  // Color de fondo rosa del botón
     paddingVertical: 15,         // Espaciado vertical dentro del botón
     paddingHorizontal: 25,       // Espaciado horizontal dentro del botón
@@ -51,11 +57,14 @@ const styles = StyleSheet.create({
     borderColor: '#d6d7da',      // Color del borde
     marginTop: 20,
   },
-  botonText: {
+  buttonText: {
     color: '#fff',               // Color del texto
     fontSize: 16,                // Tamaño del texto
     fontWeight: 'bold',          // Peso del texto
     letterSpacing: 1,            // Espaciado entre letras
     textTransform: 'uppercase',  // Transformación del texto a mayúsculas
+  },
+  scrollView: {
+    width:Dimensions.get('window').width
   },
 });
