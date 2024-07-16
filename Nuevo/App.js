@@ -1,30 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground, Alert } from 'react-native';
 import React, { useState } from 'react';
+import Prueba from './screens/Prueba';
 
-import fondoImagen from './assets/imagen_fondo/imagen.jpg';
+/* import fondoImagen from './assets/imagen_fondo/imagen.jpg'; */
 
-export default function App() {
-  const [nombre, setNombre] = useState(''); 
-  const [email, setEmail] = useState(''); 
-  const [password, setPassword] = useState('');
 
-  const handleGuardar = () => { 
-    if (nombre === '' || email === '' || password === '') {
-      Alert.alert('Error', 'Por favor completa todos los campos.');
-      return;
-    }
-    
-    const mensaje = `Nombre: ${nombre}\nEmail: ${email}\nPassword: ${password}`;
-    Alert.alert('Formulario Enviado', mensaje);
-    
-    setNombre('');
-    setEmail('');
-    setPassword('');
-  };
 
-  return (
-    <ImageBackground source={fondoImagen} style={styles.background}> 
+ {/* <ImageBackground source={fondoImagen} style={styles.background}> 
       <View style={styles.container}>
       <View style={styles.card}>
       <View style={styles.formContainer}> 
@@ -46,7 +29,32 @@ export default function App() {
       </View>
       </View>
       </View>
-    </ImageBackground>
+    </ImageBackground> */}
+
+    
+export default function App() {
+ /*  const [nombre, setNombre] = useState(''); 
+  const [email, setEmail] = useState(''); 
+  const [password, setPassword] = useState('');
+
+  const handleGuardar = () => { 
+    if (nombre === '' || email === '' || password === '') {
+      Alert.alert('Error', 'Por favor completa todos los campos.');
+      return;
+    }
+    
+    const mensaje = `Nombre: ${nombre}\nEmail: ${email}\nPassword: ${password}`;
+    Alert.alert('Formulario Enviado', mensaje);
+    
+    setNombre('');
+    setEmail('');
+    setPassword('');
+  }; */
+
+  return (
+   
+    <Prueba/>
+
   );
 }
 
@@ -99,6 +107,6 @@ const styles = StyleSheet.create({
     fontSize: 16, /* Tamaño del texto*/
     fontWeight: 'bold', /* Peso del texto*/
     letterSpacing: 1, /* Espaciado entre letras*/
-    textTransform: 'uppercase', /* Transformación del texto a mayúsculas*/
+    textTransform: 'uppercase', /* Transformación del texto a mayúsculas */
   },
 });
